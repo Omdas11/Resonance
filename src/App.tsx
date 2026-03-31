@@ -1,6 +1,7 @@
 import { PlayerProvider } from './context/PlayerContext';
 import Sidebar from './components/Sidebar';
 import NowPlayingBar from './components/NowPlayingBar';
+import BottomTabBar from './components/BottomTabBar';
 import Library from './components/Library';
 import AlbumView from './components/AlbumView';
 import AlbumDetailView from './components/AlbumDetailView';
@@ -37,8 +38,8 @@ function MainContent() {
   };
 
   return (
-    <main className="flex-1 overflow-y-auto min-h-0">
-      <div className="max-w-6xl mx-auto py-8 pb-4">
+    <main className="flex-1 overflow-y-auto min-h-0 overflow-x-hidden">
+      <div className="max-w-6xl mx-auto px-4 py-6 pb-4">
         {renderView()}
       </div>
     </main>
@@ -47,11 +48,23 @@ function MainContent() {
 
 function AppLayout() {
   return (
-    <div className="flex h-screen bg-[#111111] overflow-hidden" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" }}>
-      <Sidebar />
-      <div className="flex flex-col flex-1 min-w-0">
+    <div
+      className="flex h-screen bg-[#111111] overflow-hidden"
+      style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif" }}
+    >
+      {/* Sidebar: desktop only */}
+      <div className="hidden md:block">
+        <Sidebar />
+      </div>
+
+      <div className="flex flex-col flex-1 min-w-0 min-h-0">
         <MainContent />
+        {/* Player bar: different on mobile vs desktop */}
         <NowPlayingBar />
+        {/* Bottom tab bar: mobile only */}
+        <div className="md:hidden">
+          <BottomTabBar />
+        </div>
       </div>
     </div>
   );

@@ -6,11 +6,9 @@ import { Disc3 } from 'lucide-react';
 export default function AlbumView() {
   const { setCurrentView, setSelectedAlbumId, tracks } = usePlayer();
 
-  // Derive albums from tracks (include imported ones) + demo albums
   const albumMap = new Map<string, { title: string; artist: string; albumArt?: string; year?: number; id: string }>();
   demoAlbums.forEach(a => albumMap.set(a.id, a));
 
-  // Also collect albums from imported tracks
   tracks.forEach(t => {
     if (!Array.from(albumMap.values()).find(a => a.title === t.album && a.artist === t.artist)) {
       const id = `imported-album-${t.album}-${t.artist}`.replace(/\s+/g, '-');
@@ -32,9 +30,9 @@ export default function AlbumView() {
   }
 
   return (
-    <div className="px-4">
-      <h1 className="text-3xl font-bold text-white mb-6">Albums</h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+    <div>
+      <h1 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">Albums</h1>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1 sm:gap-2">
         {albums.map(album => (
           <AlbumCard
             key={album.id}

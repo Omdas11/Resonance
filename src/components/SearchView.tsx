@@ -29,25 +29,24 @@ export default function SearchView() {
     : [];
 
   return (
-    <div className="px-4">
+    <div>
       {/* Search Input */}
-      <div className="relative mb-8">
+      <div className="relative mb-6 sm:mb-8">
         <SearchIcon size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
         <input
           type="text"
           value={query}
           onChange={e => setQuery(e.target.value)}
           placeholder="Artists, songs, albums…"
-          autoFocus
-          className="w-full bg-white/10 text-white placeholder-white/30 rounded-xl pl-11 pr-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[#fc3c44]/50 focus:bg-white/15 transition-all"
+          className="w-full bg-white/10 text-white placeholder-white/30 rounded-xl pl-11 pr-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[#fc3c44]/50 focus:bg-white/15 transition-all min-h-[44px]"
         />
       </div>
 
       {q ? (
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-8">
           {matchingTracks.length > 0 && (
             <div>
-              <h2 className="text-lg font-bold text-white mb-3">Songs</h2>
+              <h2 className="text-base sm:text-lg font-bold text-white mb-3">Songs</h2>
               <div className="space-y-0.5">
                 {matchingTracks.map((track, i) => (
                   <TrackRow
@@ -65,8 +64,8 @@ export default function SearchView() {
 
           {matchingAlbums.length > 0 && (
             <div>
-              <h2 className="text-lg font-bold text-white mb-3">Albums</h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+              <h2 className="text-base sm:text-lg font-bold text-white mb-3">Albums</h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1 sm:gap-2">
                 {matchingAlbums.map(album => (
                   <AlbumCard
                     key={album.id}
@@ -89,8 +88,8 @@ export default function SearchView() {
         </div>
       ) : (
         <div>
-          <h2 className="text-xl font-bold text-white mb-4">Browse by Genre</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          <h2 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Browse by Genre</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3">
             {GENRES.map((genre, i) => {
               const colors = [
                 'from-[#fc3c44] to-[#ff6b6b]',
@@ -107,7 +106,7 @@ export default function SearchView() {
                 <button
                   key={genre}
                   onClick={() => setQuery(genre)}
-                  className={`h-20 rounded-xl bg-gradient-to-br ${colors[i % colors.length]} flex items-end p-3 hover:opacity-90 transition-opacity`}
+                  className={`h-16 sm:h-20 rounded-xl bg-gradient-to-br ${colors[i % colors.length]} flex items-end p-3 active:opacity-80 hover:opacity-90 transition-opacity`}
                 >
                   <span className="text-white font-bold text-sm">{genre}</span>
                 </button>

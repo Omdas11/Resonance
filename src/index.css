@@ -58,4 +58,25 @@ input[type="range"]::-moz-range-thumb {
   border: none;
 }
 
+/* Touch optimization */
+button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent overscroll bounce on iOS */
+body {
+  overscroll-behavior: none;
+}
+
+/* Safe area */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Mobile-friendly select */
+select {
+  -webkit-appearance: none;
+}
+
 
