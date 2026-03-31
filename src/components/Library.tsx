@@ -29,7 +29,7 @@ export default function Library() {
   const SortHeader = ({ field, label, className = '' }: { field: SortField; label: string; className?: string }) => (
     <button
       onClick={() => handleSort(field)}
-      className={`text-left text-xs font-semibold text-white/30 uppercase tracking-widest hover:text-white/60 active:text-white/60 transition-colors ${className}`}
+      className={`text-left text-[11px] sm:text-xs font-semibold text-white/30 uppercase tracking-widest active:text-white/60 transition-colors ${className}`}
     >
       {label}{sortField === field ? (sortAsc ? ' ↑' : ' ↓') : ''}
     </button>
@@ -47,18 +47,18 @@ export default function Library() {
 
   return (
     <div className="px-0 sm:px-2">
-      <h1 className="text-2xl sm:text-3xl font-bold text-white px-2 sm:px-4 mb-4 sm:mb-6">Songs</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold text-white px-4 mb-4 sm:mb-6">Songs</h1>
 
       {/* Header */}
-      <div className="flex items-center gap-3 px-2 sm:px-4 pb-2 border-b border-white/5 mb-1">
-        <div className="hidden sm:block w-8 text-xs text-white/30 text-center">#</div>
+      <div className="hidden sm:flex items-center gap-3 px-4 pb-2 border-b border-white/5 mb-1">
+        <div className="hidden md:block w-8 text-xs text-white/30 text-center">#</div>
         <div className="w-9 flex-shrink-0" />
         <SortHeader field="title" label="Title" className="flex-1" />
         <SortHeader field="album" label="Album" className="hidden md:block w-40 flex-shrink-0" />
         <SortHeader field="duration" label="Time" className="w-12 text-right" />
       </div>
 
-      <div className="space-y-0.5">
+      <div className="space-y-1 sm:space-y-0.5 px-2 sm:px-0">
         {sorted.map((track, i) => (
           <TrackRow
             key={track.id}

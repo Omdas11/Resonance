@@ -9,7 +9,7 @@ export default function AlbumCard({ album, onClick }: Props) {
   return (
     <button
       onClick={onClick}
-      className="group flex flex-col gap-2 text-left active:opacity-70 hover:bg-white/5 rounded-xl p-2 sm:p-3 transition-colors"
+      className="group flex flex-col gap-2 text-left active:opacity-70 hover:bg-white/5 rounded-xl p-2 sm:p-3 transition-colors min-h-[160px]"
     >
       <div className="aspect-square w-full rounded-lg overflow-hidden bg-[#3a3a3c] relative">
         {album.albumArt

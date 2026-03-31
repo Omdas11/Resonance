@@ -13,9 +13,17 @@ export default function ForYouView() {
 
   return (
     <div className="space-y-8 sm:space-y-10">
-      <div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1">Good evening</h1>
-        <p className="text-white/40 text-sm">Here's what we think you'll love</p>
+      <div className="flex items-center justify-between gap-3 flex-wrap">
+        <div>
+          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1">Good evening</h1>
+          <p className="text-white/40 text-sm">Here's what we think you'll love</p>
+        </div>
+        <a
+          href="/Resonance.apk"
+          className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-[#fc3c44] text-white text-sm font-semibold shadow-md active:bg-[#e0333b] hover:bg-[#e0333b] transition-colors min-h-[44px]"
+        >
+          Download APK
+        </a>
       </div>
 
       {/* Featured */}

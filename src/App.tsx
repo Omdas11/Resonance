@@ -39,7 +39,7 @@ function MainContent() {
 
   return (
     <main className="flex-1 overflow-y-auto min-h-0 overflow-x-hidden">
-      <div className="max-w-6xl mx-auto px-4 py-6 pb-4">
+      <div className="max-w-6xl mx-auto px-4 py-6 pb-28 md:pb-6">
         {renderView()}
       </div>
     </main>
